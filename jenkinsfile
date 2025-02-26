@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Run Bash Script') {
+            steps {
+                sh './script.sh'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Script executed successfully!"
+        }
+        failure {
+            echo "Script execution failed!"
+        }
+    }
+}
